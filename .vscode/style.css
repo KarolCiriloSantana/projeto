@@ -1,0 +1,184 @@
+/* block (ocupa o espaço todo só para ele) != inline (escreve ao ladio, na linha)*/
+
+* {
+  /* "*" é seletor universal*/
+  margin: 0;
+  padding: 0; /*around the elemento tp the border of the page*/
+  box-sizing: border-box; /*we can  use width and padding*/
+}
+/*tudo que está no defalt mads será mudado com variável com a aclasse light*/
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --higtlight-color: rgba(255, 255, 255, 0.2);
+  --image: url(./assets/moon-stars.svg);
+}
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --image: url(./assets/sun.svg);
+}
+
+
+
+
+body {
+  background: var(--bg-url) no-repeat top center/cover; /*agrupar backgroud (atalho/shorthand)*/
+
+  /*background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;*/
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+#conteiner {
+  /*cada caixa/div tem um #*/
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px; /*em cima e embaixo | lados */
+  border: 1px solid goldenrod;
+  /*margin: auto;
+  margin-top: 56px;
+
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;*/
+}
+#profile {
+  text-align: center;
+  padding: 24px;
+  border: 1px solid blueviolet;
+}
+/*tags do profile*/
+#profile img {
+  /*para cada especificidade (elementos) que tem no profle*/
+  width: 112px; /*sgerakmente não precisa colocar altura*/
+}
+#profile p {
+  /*font-optical-sizing: auto;*/
+  font-weight: 500px;
+  line-height: 24px;
+  margin-top: 8px;
+
+}
+
+#switch {
+  border: 1px solid green;
+  position: relative; /* o absoluto sera realatoivo ao switch*/
+  width: 64px;
+  margin: 4px auto; /*para centralizar uma caixa com display bplock*/
+   
+
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--image) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /* faz uma sobre posição de camada e fica por baixo de tdas as tags do switch*/
+ 
+  top: 50%;
+  left: 0;
+  z-index: 1;/*muda para camada um*/ 
+  transform: translateY(-50%);
+ 
+}
+.light #switch button{
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+
+}
+
+/*lista dos retãngulos com os links*/
+ul {
+  border: 1px solid red;
+  list-style: none;
+  display: flex; /*todos os elementos vão ocupar o espaço da caixa */
+  flex-direction: column; /*..mas irão em forma de coluna*/
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+ul li a {
+  /*o "a" é necessário por se tratar de uma lista de links*/
+  display: flex; /*o elemento ocupa todo espaço do cotent*/
+
+  /*alinhar com displey flex*/
+
+  align-items: center; /*no meio da "caixa" que cda elemeto ocupa*/
+  justify-content: center; /*centraliza o conteído do elemento*/
+
+  padding: 16px 24px; /*para preencher a caixa que é cada eleneto */
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*arredonda a borda*/
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector (só acontece se passar  malse em cima)*/
+
+ul li a:hover {
+  background: var(--highlight-color);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex; /* Os elementos ficam grudados um do lado do outro à esquerda do flex container | habilita a usar o gap, que dá espaço dentre os elementos, e também o justify*/
+  justify-content: center;
+  font-size: 24px;
+  padding: 24px 0;
+}
+
+#social-links a {
+  /*para cada link do socioal-links*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+#social-links a:hover {
+  background: var(--highlight-color);
+  padding: 16px;
+}
+footer {
+  padding: 24px 0;
+  text-align: center; /*alinhamento de texto*/
+}
