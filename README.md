@@ -45,4 +45,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by Karol Santana e ofertsdo pela Rocketseat
+Feito com ♥ by Karol Santana
