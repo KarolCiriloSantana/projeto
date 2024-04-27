@@ -26,9 +26,6 @@
   --image: url(./assets/sun.svg);
 }
 
-
-
-
 body {
   background: var(--bg-url) no-repeat top center/cover; 
   height: 100vh; /*para a altura ficar de acordo coma a altura do dispositivo
