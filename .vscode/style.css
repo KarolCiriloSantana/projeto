@@ -47,7 +47,8 @@ body * {
 
 #conteiner {
   /*cada caixa/div tem um #*/
-  width: 360px;
+  width: 100%;
+  max-width: 580px; 
   margin: 56px auto 0px;
   padding: 0 24px; /*em cima e embaixo | lados */
   border: 1px solid goldenrod;
