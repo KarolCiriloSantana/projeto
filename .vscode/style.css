@@ -30,7 +30,9 @@
 
 
 body {
-  background: var(--bg-url) no-repeat top center/cover; /*agrupar backgroud (atalho/shorthand)*/
+  background: var(--bg-url) no-repeat top center/cover; 
+  height: 100vh; /*para a altura ficar de acordo coma a altura do dispositivo
+  /*agrupar backgroud (atalho/shorthand)*/
 
   /*background-image: url(./assets/bg-mobile.jpg);
   background-repeat: no-repeat;
@@ -182,4 +184,15 @@ ul li a:hover {
 footer {
   padding: 24px 0;
   text-align: center; /*alinhamento de texto*/
+}
+
+/*só funciona com a tag do html "meta" com a "viewport"
+media querie que funciona a partir da larguramínima de 700px*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
